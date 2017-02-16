@@ -1,0 +1,27 @@
+set nocompatible 
+set nomodeline
+set nolist
+set nomod 
+set hls
+set nowrapscan
+set laststatus=0
+set cmdheight=1
+set readonly
+set nowrap
+set tabstop=4
+
+syntax on
+
+nmap b      <C-b>H<C-g> 
+nmap q      :q!<CR> 
+nmap g      1G<C-g> 
+nmap e      <C-e> 
+nnoremap y  <C-y>k 
+nmap d      <C-d>z<CR> 
+nmap u      <C-u>H 
+nmap <CR>   <C-e> 
+nmap =      <C-g> 
+nmap <Esc>u :noh<CR> 
+nmap E      :e!<Space> 
+
+nmap      <C-f><C-g>
