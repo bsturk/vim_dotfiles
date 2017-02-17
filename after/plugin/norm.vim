@@ -37,10 +37,6 @@ endif
 ""  Show date and filesize in explorer
 let g:explDetailedList = 1
 
-"" diffchar plugin
-let g:DiffUnit="Word1"
-let g:DiffColors=100
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 func! CDCurBuf()

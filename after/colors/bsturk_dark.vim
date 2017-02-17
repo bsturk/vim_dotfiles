@@ -38,10 +38,10 @@ hi Label                                                                        
 hi Operator                                                                                                                     guifg=orange
 hi Cursor                                                                                                                       guifg=bg               guibg=LightGreen
 
-highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+highlight DiffAdd    cterm=bold ctermfg=yellow gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=blue  gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=red  gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=green  gui=none guifg=bg guibg=Red
 
 hi link javaPunct Operator
 
