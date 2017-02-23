@@ -446,7 +446,7 @@ function s:HEX_XxdConv()
   if getline(1) =~ "^0000000:"		" only if it worked
     set ft=xxd
   else
-    return				" can't start xxd
+    return 0				" can't start xxd
   endif
   "
   " Nice mapping for TAB/Shift-TAB
