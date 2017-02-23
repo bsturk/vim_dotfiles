@@ -39,59 +39,6 @@ let g:explDetailedList = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-func! CDCurBuf()
-if bufname ("%") != "" && isdirectory (expand ("%:p:h"))
-    cd %:p:h 
-	echo "':cd %:p:h'\t\t chdir: --> " . (expand("%:p:h"))
-endif
-endfunc
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-func! ToggleLineNumbers()
-    if &number == 1
-        set nonumber
-    else
-        set number
-    endif
-endfunc
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-func! ToggleShowMenu()
-    if has("gui_running")
-        if &guioptions !~# "m"
-            set guioptions+=m
-            echo "Showing menu..."
-        else
-            set guioptions-=m
-            echo "Hiding menu..."
-        endif
-    endif
-endfunc
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:TextModeColorsOn = 0
-let g:PrevFGColor      = 0
-let g:PrevBGColor      = 0
-
-func! ToggleTextMode()
-	let g:TextModeColorsOn=!g:TextModeColorsOn
-
-	if g:TextModeColorsOn
-		" if text mode isn't on get the fg and bg colors to restore later
-		let g:PrevBGColor = synIDattr(synIDtrans(hlID("Normal")), "bg")
-		let g:PrevFGColor = synIDattr(synIDtrans(hlID("Normal")), "fg")
-
-		exec "hi Normal guibg=#260062 guifg=grey77"
-	else    
-		exec "hi Normal guibg=" . g:PrevBGColor . " guifg=" . g:PrevFGColor
-	endif
-endfunc
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 if has("win32")
     func! PrintBuffer (mode)
         if(!g:printer_spool_started)

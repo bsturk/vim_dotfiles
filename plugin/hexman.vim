@@ -149,11 +149,8 @@
 "
 " 	Define mapping:
 "
-" NOTE: bsturk I removed <Plug> to all references of HexManager so I could
-" call it from an autocommand
-
-if !hasmapto('HexManager')
-  map <unique> <Leader>hm HexManager
+if !hasmapto('<Plug>HexManager')
+  map <unique> <Leader>hm <Plug>HexManager
 endif
 if !hasmapto('<Plug>HexDelete')
   map <unique> <Leader>hd <Plug>HexDelete
@@ -180,7 +177,7 @@ if !hasmapto('<Plug>HexFind')
   map <unique> <Leader>hf <Plug>HexFind
 endif
 
-noremap <unique> <script> HexManager       <SID>Manager
+noremap <unique> <script> <Plug>HexManager <SID>Manager
 noremap <unique> <script> <Plug>HexDelete  <SID>Delete
 noremap <unique> <script> <Plug>HexInsert  <SID>Insert
 noremap <unique> <script> <Plug>HexGoto    <SID>Goto
@@ -239,7 +236,7 @@ let loaded_hexman = 1
 " Toggle between Hexmode and Normalmode
 "=============================================================================
 "
-function HEX_Manager()
+function s:HEX_Manager()
 "
   if g:HEX_active == 1
     " 10OCT04 FR Unmapping

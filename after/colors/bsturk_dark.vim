@@ -65,7 +65,7 @@ hi crCursor  ctermfg=blue  ctermbg=fg  gui=reverse  guifg=red        guibg=bg
 hi smCursor  ctermfg=blue  ctermbg=fg  gui=reverse  guifg=blue       guibg=bg
 hi oCursor   ctermfg=blue  ctermbg=fg  gui=reverse  guifg=darkblue   guibg=bg 
 
-if has("mac") || has("macunix")
+if has("gui") && ( has("mac") || has("macunix") )
     set transp=3
 endif
 
