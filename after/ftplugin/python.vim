@@ -1,5 +1,4 @@
 runtime after/usr/devgen.vim
-runtime after/usr/shcom.vim
 
 iab zc class_name_:<C-O>b<C-O>f_
 iab zd def_func_name_( args ):<C-O>4b<C-O>f_
@@ -12,6 +11,8 @@ iab zi if:<C-O>h<C-O>a
 iab zI import
 iab zp print
 iab zt try:<C-O>h<C-O>a
+iab z* ################################################################################
+iab z/ #############
 
 "  python.vim macro overrides
 

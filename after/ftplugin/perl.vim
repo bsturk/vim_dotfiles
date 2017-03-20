@@ -1,5 +1,4 @@
 runtime after/usr/devgen.vim
-runtime after/usr/shcom.vim
 
 set makeprg=perl\ -w\ %
 set shellpipe=2>&1\|tee\ /tmp/perlerr
