@@ -15,6 +15,7 @@ set guioptions=ia
 set hidden 
 set ignorecase 
 set incsearch 
+set laststatus=2
 set matchpairs=(:),{:},[:],<:>
 set matchtime=1
 set modeline
@@ -36,7 +37,7 @@ set showmatch
 set showmode 
 set smartcase 
 set splitbelow
-set statusline=%<%F%m%=#%n\ %([%R]%)\ %([%Y]%)\ %P\ <%l,%c%V>
+set statusline=%<%F%m%=#%n\ %([%R]%)\ %([%Y]%)\ %P\ [%b\-0x%B]\ <%l,%c%V>
 set suffixes+=\.zip,\.gz
 set tabstop=4
 set textwidth=80
