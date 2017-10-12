@@ -88,4 +88,7 @@ if has("syntax")
     syntax on
 endif    
 
+" pathogen plugin manager
+execute pathogen#infect()
+
 colorscheme bsturk_dark
