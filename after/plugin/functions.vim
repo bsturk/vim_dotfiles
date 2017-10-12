@@ -58,10 +58,10 @@ func! ToggleShowMenu()
 endfunc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
- 
+
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
- 
+
 function! AutoHighlightToggle()
    let @/ = ''
    if exists('#auto_highlight')
