@@ -26,6 +26,7 @@ set nocompatible
 set nohlsearch
 set nowrap 
 set nowrapscan 
+set pastetoggle=<C-<>
 set ruler 
 set rulerformat=%25(#%n\ %m%r%y\ %P\ <%l,%c%V>%)
 set runtimepath+=$MYVIM/after
@@ -33,6 +34,7 @@ set scroll=15
 set sessionoptions=buffers,curdir,folds,globals,localoptions,options,winpos,winsize
 set shiftwidth=4
 set shortmess=aAoOtI	" make messages fit into one line
+set showcmd
 set showmatch 
 set showmode 
 set smartcase 
@@ -49,12 +51,14 @@ set viminfo='0,\"0,:40,n~/.viminfo
 set whichwrap+=<,>,[,]                                                          
 set wildignore=*.bak,*.~,*.obj,*.tmp,*.001,*.~mp,*.hlp,*.swp,*.def,*.class
 set wildmenu 
+"set wildmode=longest,list
 set winaltkeys=menu
   
 if has("unix")
     set shell=sh
     set guioptions+=F
     set guifont=Monospace\ 10,Bitstream\ Vera\ Sans\ Mono\ 12,Monospace\ 8,Terminal\ 10,MiscFixed\ 8
+    set encoding=utf8   " GTK likes this
     let $PAGER=''
 
 	set backupdir=~/.tmp/recover        " backups
