@@ -37,6 +37,15 @@ endif
 ""  Show date and filesize in explorer
 let g:explDetailedList = 1
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has("win32")
@@ -62,6 +71,10 @@ if has("win32")
     vmap <M-p>             <Esc>:call PrintBuffer ('Visual')<CR>
 endif
  
+if !has ("macunix")
+    nmap <leader>mn  :call ToggleShowMenu()<CR>
+endif
+
 " ** Alt keys : NOTE: F, E, T, Y, B, and N are used for menu access! **
 
 nmap  '            `
@@ -93,17 +106,14 @@ nmap <leader>he    :Vinarise<CR>
 nmap <leader>hg    :echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name")<CR>
 nmap <leader>hi    :echo synIDattr(synID(line("."),col("."),1),"name")<CR>
 nmap <leader>hl    :set hls!<CR>:set hls?<CR>
-nmap <leader>hw    :AutoHighlightToggle()<CR>
-nmap <leader>im    :DisplayImage()<CR>
+nmap <leader>hw    :call AutoHighlightToggle()<CR>
+nmap <leader>im    :call DisplayImage()<CR>
 nmap <leader>in    :Info <cword><CR>
 
-if !has ("macunix")
-    nmap <leader>mn  :call ToggleShowMenu()<CR>
-endif
 nmap <leader>nm           :call ToggleLineNumbers()<CR>
 nmap <leader>ru           0O....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8
-nmap <leader>tx           :call ToggleTextMode()<CR>
 
+nmap <leader>sc           :call ToggleShowMenu()<CR>
 nmap <leader>sh           :runtime after/usr/macros/vimsh/vimsh.vim<CR>
 nmap <leader>cm           :runtime after/usr/macros/vc/vc.vim<CR>
-nmap <silent> <leader>vc :cal VimCommanderToggle()<CR>
+nmap <silent> <leader>vc  :call VimCommanderToggle()<CR>

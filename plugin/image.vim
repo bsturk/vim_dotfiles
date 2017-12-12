@@ -1,11 +1,11 @@
 command! -nargs=0 Image call DisplayImage()
 
 if !has("python") && !has("python3")
-    "echo "image.vim requires python support"
+    echo "image.vim requires python support"
     finish
 endif
 
-"au BufRead *.png,*.jpg,*.jpeg :call DisplayImage()
+au BufRead *.png,*.jpg,*.jpeg :call DisplayImage()
 
 function! DisplayImage()
 set nowrap

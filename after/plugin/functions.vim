@@ -1,5 +1,3 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 func! GetScriptNumber(script_name)
     " Return the <SNR> of a script.
     "
@@ -40,6 +38,16 @@ func! ToggleLineNumbers()
         set nonumber
     else
         set number
+    endif
+endfunc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+func! ToggleShowColumn80()
+    if &number == 1
+        set colorcolumn=80
+    else
+        set colorcolumn=""
     endif
 endfunc
 
