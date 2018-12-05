@@ -1,2 +1,3 @@
 set noexpandtab
-au BufRead,BufNewFile *.mvel                            setf java | set ft=java | set syntax=java
+
+au BufRead,BufNewFile *.mvel    setf java | set ft=java | set syntax=java

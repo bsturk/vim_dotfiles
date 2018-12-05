@@ -92,6 +92,11 @@ if has("syntax")
     syntax on
 endif    
 
+" without this, it takes over a minute to start in docker
+if $IN_DOCKER == 1
+	set clipboard=
+endif
+
 " pathogen plugin manager
 execute pathogen#infect()
 
