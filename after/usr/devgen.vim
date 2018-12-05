@@ -1,6 +1,3 @@
-" Stuff that should be done everytime this file is sourced
-" should go below here...
-
 set expandtab
 set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:- 
 set foldlevel=0 
@@ -13,7 +10,7 @@ set shiftwidth=4
 set tabstop=4
 set textwidth=9999
 
-map \fo :let &fen = !&fen<CR>
+""""""""""""""
 
 func! AddParenSpaces(mode)
     let savecol = col(".")
@@ -51,10 +48,14 @@ func! SurroundWordWithParen(mode)
 	exec 'normal ' . savecol . '|' 
 endfun
 
+""""""""""""""
+
+map      \fo     :let &fen = !&fen<CR>
 noremap  \((     :call AddParenSpaces('Normal')<CR>
 vnoremap \((     <Esc>:call AddParenSpaces('Visual')<CR>
 noremap  \(s     :call SurroundWordWithParen('Normal')<CR>
 vnoremap \(s     <Esc>:call SurroundWordWithParen('Visual')<CR>
 
+" cscope
 noremap g<C-]>   :cs find 3 <C-R>=expand("<cword>")<CR><CR>
 noremap g<C-\>   :cs find 0 <C-R>=expand("<cword>")<CR><CR>
