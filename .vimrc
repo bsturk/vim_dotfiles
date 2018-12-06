@@ -64,10 +64,6 @@ if has("unix")
 	set backupdir=~/.tmp/recover        " backups
 	set directory=~/.tmp/recover        " swap files
 
-    if !has('gui_running')
-          set t_Co=256
-      endif
-
     source ~/.vimrc-work
 
 elseif has ("win32")
@@ -86,6 +82,10 @@ endif
 
 if has ("macunix")
 	set clipboard=unnamed
+
+    if !has('gui_running')
+          set t_Co=256
+      endif
 endif
 
 if has("autocmd")  " must be done first for some reason
