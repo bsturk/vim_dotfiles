@@ -64,6 +64,10 @@ if has("unix")
 	set backupdir=~/.tmp/recover        " backups
 	set directory=~/.tmp/recover        " swap files
 
+    if !has('gui_running')
+          set t_Co=256
+      endif
+
     source ~/.vimrc-work
 
 elseif has ("win32")
