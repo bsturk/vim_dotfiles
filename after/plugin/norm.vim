@@ -12,6 +12,7 @@ iab Becuase Because
 
 iab zdate <C-R>=strftime("%m/%d/%y")<CR>
 iab ztime <C-R>=strftime("%X")<CR>
+iab zguid <C-R>=system('uuidgen')[:-2]<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
