@@ -50,6 +50,17 @@ endfun
 
 """"""""""""""
 
+if &diff
+     map \is :call IwhiteToggle()<CR>
+     function! IwhiteToggle()
+       if &diffopt =~ 'iwhite'
+         set diffopt-=iwhite
+       else
+         set diffopt+=iwhite
+       endif
+     endfunction
+ endif
+
 map      \fo     :let &fen = !&fen<CR>
 noremap  \((     :call AddParenSpaces('Normal')<CR>
 vnoremap \((     <Esc>:call AddParenSpaces('Visual')<CR>
