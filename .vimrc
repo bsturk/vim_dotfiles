@@ -23,6 +23,10 @@ set modelines=2
 set mousehide 
 set noautowrite 
 set nocompatible 
+set noeol
+if v:version >= 7.4.785
+    set nofixeol
+endif
 set nohlsearch
 set nowrap 
 set nowrapscan 
