@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/mnt/nas/mus/hardware/pedals/boss_ds1-cb'
+let g:netrw_dirhist_2='/mnt/nas/doc/house/falcon_dr'
+let g:netrw_dirhist_3='/mnt/nas/doc/house/falcon_dr/service_maintenance'
+let g:netrw_dirhist_4='/mnt/nas/doc/music/software'
+let g:netrw_dirhist_5='/mnt/nas/mus/hardware/samplers_drum_machines/yamaha_rx5'
+let g:netrw_dirhist_6='/mnt/nas/.pri/doc'
+let g:netrw_dirhist_7='/mnt/nas/.pri/doc/karey'
+let g:netrw_dirhist_8='/mnt/nas/.pri/doc'
+let g:netrw_dirhist_9='/mnt/nas/.pri/doc/me'
