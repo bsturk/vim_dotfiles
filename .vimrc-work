@@ -1,4 +1,1 @@
 set noexpandtab
-
-au BufRead,BufNewFile *.mvel    setf java | set ft=java | set syntax=java
-au BufRead,BufNewFile *.rule    set ft=yara | set syntax=yara | set tw=9999 | runtime after/usr/devgen.vim

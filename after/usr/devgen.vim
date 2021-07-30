@@ -1,3 +1,6 @@
+" Stuff that should be done everytime this file is sourced
+" should go below here...
+
 set expandtab
 set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:- 
 set foldlevel=0 

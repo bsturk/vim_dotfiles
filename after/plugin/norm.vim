@@ -102,17 +102,17 @@ imap <C-S>         <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 ""  Jump to previous spot in alt file
 noremap <C-^>      <C-^>`"                       
 
-vmap <leader>alre         :call DoAlign()<CR>
-nmap <leader>cd           :call CDCurBuf()<CR>
-nmap <leader>ee           :Explore<CR>
-nmap <leader>es           :Sexplore<CR>
-nmap <leader>he           :Vinarise<CR>
-nmap <leader>hg           :echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name")<CR>
-nmap <leader>hi           :echo synIDattr(synID(line("."),col("."),1),"name")<CR>
-nmap <leader>hl           :set hls!<CR>:set hls?<CR>
-nmap <leader>hw           :call AutoHighlightToggle()<CR>
-nmap <leader>im           :call DisplayImage()<CR>
-nmap <leader>in           :Info <cword><CR>
+vmap <leader>alre  :call DoAlign()<CR>
+nmap <leader>cd    :call CDCurBuf()<CR>
+nmap <leader>ee    :Explore<CR>
+nmap <leader>es    :Sexplore<CR>
+nmap <leader>he    :Vinarise<CR>
+nmap <leader>hg    :echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "name")<CR>
+nmap <leader>hi    :echo synIDattr(synID(line("."),col("."),1),"name")<CR>
+nmap <leader>hl    :set hls!<CR>:set hls?<CR>
+nmap <leader>hw    :call AutoHighlightToggle()<CR>
+nmap <leader>im    :call DisplayImage()<CR>
+nmap <leader>in    :Info <cword><CR>
 
 nmap <leader>nm           :call ToggleLineNumbers()<CR>
 nmap <leader>ru           0O....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8
