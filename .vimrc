@@ -58,8 +58,6 @@ set wildmenu
 "set wildmode=longest,list
 set winaltkeys=menu
   
-let g:netrw_dirhistmax=0
-
 if has("unix")
     set shell=sh
     set guioptions+=F

@@ -205,7 +205,7 @@
 
 :: vimsh help ::
 
-    Feel free to email me (bsturk@acomcast.net) with issues regarding    
+    Feel free to email me (bsturk <<a t>> comcast.net) with issues regarding    
     vimsh or if you've found a bug etc.  Please read this file, the          
     CHANGELOG, and the TODO to see if I already know about the issue, or    
     is a known limitation before contacting me.  If you do email me please   
@@ -219,4 +219,4 @@
 		http://vim.sourceforge.net/scripts/script.php?script_id=165
        
     Please send bug reports, suggestions, and other email to
-        bsturk@comcast.net
+        bsturk <<a t>> comcast.net

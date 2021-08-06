@@ -26,7 +26,8 @@ endif
 let g:selBufActKeySeq = '\ls'
 
 if has("browse")
-    let g:netrw_list_hide='\.DS_Store'
+    let g:netrw_list_hide = '\.DS_Store'
+    let g:netrw_dirhistmax = 0
 endif
 
 if !has ("X11")     " title not restored when not compiled w/o X support
