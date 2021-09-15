@@ -59,6 +59,7 @@ set wildmenu
 set winaltkeys=menu
   
 if has("unix")
+    set diffopt-=internal       " UNIX platforms use external tool and may not have been compiled with support for internal diff
     set shell=sh
     set guioptions+=F
     set guifont=Monospace\ 10,Bitstream\ Vera\ Sans\ Mono\ 12,Monospace\ 8,Terminal\ 10,MiscFixed\ 8
@@ -85,6 +86,7 @@ elseif has ("win32")
 endif    
 
 if has ("macunix")
+    set diffopt-=internal       " UNIX platforms use external tool and may not have been compiled with support for internal diff
 	set clipboard=unnamed
 
     if !has('gui_running')

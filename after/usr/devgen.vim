@@ -58,10 +58,10 @@ endfun
 if &diff
      map \is :call IwhiteToggle()<CR>
      function! IwhiteToggle()
-       if &diffopt =~ 'iwhite'
-         set diffopt-=iwhite
+       if &diffopt =~ 'iwhiteall'
+         set diffopt-=iwhiteall
        else
-         set diffopt+=iwhite
+         set diffopt+=iwhiteall
        endif
      endfunction
  endif
