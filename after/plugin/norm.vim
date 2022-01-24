@@ -13,6 +13,17 @@ iab Becuase Because
 iab zdate <C-R>=strftime("%m/%d/%y")<CR>
 iab ztime <C-R>=strftime("%X")<CR>
 
+if has("unix")
+    iab zguid <C-R>=system('uuidgen <Bar> tr \[:lower:\] \[:upper:\]')[:-2]<CR>
+elseif has ("macunix")
+    iab zguid <C-R>=system('uuidgen')[:-2]<CR>
+elseif has ("win32")
+    " this is SLOOOWWWWW
+    iab zguid <C-R>=system('powershell.exe -c "[guid]::NewGuid().ToString().ToUpper()"')[:-2]<CR>
+    " this fails due to perms in %TMP%
+    " iab zguid <C-R>=system("C:\Program Files\ (x86)\Windows\ Kits\10\bin\10.0.22000.0\x64\uuidgen.exe")[:-2]<CR>
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let $VIMSH              = 1

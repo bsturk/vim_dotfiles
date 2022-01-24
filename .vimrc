@@ -4,7 +4,9 @@ set backup
 set backupcopy=yes
 set backupext=.bak
 set browsedir=current
-set clipboard=unnamed,autoselect
+if !has('nvim')
+    set clipboard=unnamed,autoselect
+endif
 set cmdheight=1
 set cmdwinheight=2
 set complete=.,w,u,b,i,d,t
@@ -43,6 +45,7 @@ set showmatch
 set showmode 
 set smartcase 
 set splitbelow
+set splitright
 set statusline=%<%F%m%=#%n\ %([%R]%)\ %([%Y]%)\ %P\ [%b\-0x%B]\ <%l,%c%V>
 set suffixes+=\.zip,\.gz
 set tabstop=4
@@ -51,7 +54,6 @@ set title
 set titlelen=100
 set titlestring=%<%F%m%r%=\ [\ %{getcwd()}\ ]\ -on-\ %{hostname()}
 set updatecount=200
-set viminfo='0,\"0,:40,n~/.viminfo
 set whichwrap+=<,>,[,]                                                          
 set wildignore=*.bak,*.~,*.obj,*.tmp,*.001,*.~mp,*.hlp,*.swp,*.def,*.class
 set wildmenu 

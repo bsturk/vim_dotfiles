@@ -13,8 +13,6 @@ set shiftwidth=4
 set tabstop=4
 set textwidth=9999
 
-iab zguid <C-R>=system('uuidgen')[:-2]<CR>
-
 """"""""""""""
 
 func! AddParenSpaces(mode)
