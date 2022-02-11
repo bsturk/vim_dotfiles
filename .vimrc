@@ -59,6 +59,10 @@ set wildignore=*.bak,*.~,*.obj,*.tmp,*.001,*.~mp,*.hlp,*.swp,*.def,*.class
 set wildmenu 
 "set wildmode=longest,list
 set winaltkeys=menu
+
+" disables any bell in vim
+set visualbell
+set t_vb=
   
 if has("unix")
     set diffopt-=internal       " UNIX platforms use external tool and may not have been compiled with support for internal diff
@@ -110,6 +114,10 @@ if $IN_DOCKER == 1
 endif
 
 " pathogen plugin manager
-execute pathogen#infect()
+if has('win32') || has('win64')
+	source g:\.vim\autoload\pathogen.vim
+endif
+
+call pathogen#infect()
 
 colorscheme bsturk_dark
