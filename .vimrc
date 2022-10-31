@@ -63,7 +63,19 @@ set winaltkeys=menu
 " disables any bell in vim
 set visualbell
 set t_vb=
-  
+
+if has("autocmd")  " must be done first for some reason
+    filetype plugin indent on
+endif
+
+if has("syntax") 
+    syntax on
+endif    
+
+""""""""""""""""""""" Platform specific """""""""""""""""""""""""
+
+let g:in_wsl = 0
+
 if has("unix")
     set diffopt-=internal       " UNIX platforms use external tool and may not have been compiled with support for internal diff
     set shell=sh
@@ -75,9 +87,18 @@ if has("unix")
 	set backupdir=~/.tmp/recover        " backups
 	set directory=~/.tmp/recover        " swap files
 
+    " WSL check
+	let uname = substitute(system('uname'),'\n','','')
+	if uname == 'Linux'
+		let lines = readfile("/proc/version")
+		if lines[0] =~ "Microsoft"
+            let g:in_wsl = 1
+        endif
+    endif
+
     source ~/.vimrc-work
 
-elseif has ("win32")
+elseif has ("win32") || has ("win64")
     set backupdir=$TMP/recover
     set directory=$TMP/recover
 
@@ -100,24 +121,12 @@ if has ("macunix")
       endif
 endif
 
-if has("autocmd")  " must be done first for some reason
-    filetype plugin indent on
-endif
-
-if has("syntax") 
-    syntax on
-endif    
-
 " without this, it takes over a minute to start in docker
 if $IN_DOCKER == 1
 	set clipboard=
 endif
 
-" pathogen plugin manager
-if has('win32') || has('win64')
-	source g:\.vim\autoload\pathogen.vim
-endif
-
-call pathogen#infect()
+source $MYVIM/autoload/pathogen.vim
+execute pathogen#infect()
 
 colorscheme bsturk_dark
