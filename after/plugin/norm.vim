@@ -123,6 +123,7 @@ nmap <leader>hg    :echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "n
 nmap <leader>hi    :echo synIDattr(synID(line("."),col("."),1),"name")<CR>
 nmap <leader>hl    :set hls!<CR>:set hls?<CR>
 nmap <leader>hw    :call AutoHighlightToggle()<CR>
+nmap <leader>gf    :set guifont=*
 nmap <leader>im    :call DisplayImage()<CR>
 nmap <leader>in    :Info <cword><CR>
 

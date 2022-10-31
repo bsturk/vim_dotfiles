@@ -9,7 +9,7 @@
 "
 " usage:    :so[urce] vimsh.vim
 
-if has("python")
+if has("python") || has("python3")
 
     " Only load vimsh.py once (don't reset variables)
     if !exists("g:vimsh_loaded_python_file")
