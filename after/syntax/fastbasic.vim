@@ -63,7 +63,6 @@ syn keyword basicFunction PUT put
 syn keyword basicFunction RAND rand
 syn keyword basicFunction RAD rad
 syn keyword basicFunction READ read
-syn keyword basicFunction REM rem
 syn keyword basicFunction RESTORE restore
 syn keyword basicFunction RND rnd
 syn keyword basicFunction SAVE save
@@ -145,17 +144,18 @@ syn match  basicNumber		"\<\d\+\.\d*\>"
 "floating point number, starting with a dot
 syn match  basicNumber		"\.\d\+\>"
 
+syn match   basicMathsOperator "-\|=\|[:<>+\*^/\\]\|AND\|OR"
+
+syn region  basicLabel	start="^[a-zA-Z]" end="$"
 syn region  basicString	 start=+"+ skip=+\\\\\|\\"+ end=+"+
 
 syn region  basicComment	start="REM" end="$" contains=basicTodo
-syn region  basicComment	start="^ *'" end="$" contains=basicTodo
+syn match   basicComment         '\'.*$'
+syn match   basicComment         '\..*$'
 syn region  basicLineNumber	start="^\d" end="\s"
 syn match   basicTypeSpecifier  "[a-zA-Z0-9][\$%&!#]"ms=s+1
 
 syn match   basicFilenumber    "#\d\+"
-syn match   basicMathsOperator "-\|=\|[:<>+\*^/\\]\|AND\|OR"
-
-syn region  basicLabel	start="^[a-zA-Z]" end="$"
 
 " Define the default highlighting.
 " Only when an item doesn't have highlighting yet
