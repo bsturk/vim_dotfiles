@@ -59,6 +59,9 @@ if !has ("X11")     " title not restored when not compiled w/o X support
     let &titleold=getcwd()
 endif
 
+"" when using pico8 don't have tabwidth of 1 and border
+let g:pico8_config={ 'imitate_console' : 0 }
+
 ""  Show date and filesize in explorer
 let g:explDetailedList = 1
 

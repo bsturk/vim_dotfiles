@@ -4,7 +4,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "bms_dark"
+let g:colors_name = "bsturk_dark"
 
 hi Directory      term=bold                                    ctermfg=DarkGreen                                                guifg=#00c000
 hi ErrorMsg       term=standout                                ctermfg=White          ctermbg=Red                               guifg=Black            guibg=Red

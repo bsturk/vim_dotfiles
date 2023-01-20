@@ -35,6 +35,9 @@ set nowrapscan
 set pastetoggle=<C-<>
 set ruler 
 set rulerformat=%25(#%n\ %m%r%y\ %P\ <%l,%c%V>%)
+" first load default path
+set runtimepath+=$MYVIM
+" then my overrides
 set runtimepath+=$MYVIM/after
 set scroll=15
 set sessionoptions=buffers,curdir,folds,globals,localoptions,options,winpos,winsize
@@ -130,3 +133,7 @@ source $MYVIM/autoload/pathogen.vim
 execute pathogen#infect()
 
 colorscheme bsturk_dark
+
+if &diff
+    colorscheme CodeFactoryv3
+endif
