@@ -129,9 +129,6 @@ if $IN_DOCKER == 1
 	set clipboard=
 endif
 
-source $MYVIM/autoload/pathogen.vim
-execute pathogen#infect()
-
 colorscheme bsturk_dark
 
 if &diff
