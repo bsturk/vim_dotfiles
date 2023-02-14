@@ -14,6 +14,8 @@ iab zt try:<C-O>h<C-O>a
 iab z* ################################################################################
 iab z/ #############
 
+let g:slime_python_ipython = 1
+
 "  python.vim macro overrides
 
 set wildignore+=*.pyc

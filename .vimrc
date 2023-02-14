@@ -35,8 +35,9 @@ set nowrapscan
 set pastetoggle=<C-<>
 set ruler 
 set rulerformat=%25(#%n\ %m%r%y\ %P\ <%l,%c%V>%)
-" first load default path
+" first load default paths
 set runtimepath+=$MYVIM
+set packpath+=$MYVIM
 " then my overrides
 set runtimepath+=$MYVIM/after
 set scroll=15
@@ -81,7 +82,7 @@ let g:in_wsl = 0
 
 if has("unix")
     set diffopt-=internal       " UNIX platforms use external tool and may not have been compiled with support for internal diff
-    set shell=sh
+    set shell=bash
     set guioptions+=F
     set guifont=Monospace\ 10,Bitstream\ Vera\ Sans\ Mono\ 12,Monospace\ 8,Terminal\ 10,MiscFixed\ 8
     set encoding=utf8   " GTK likes this
@@ -92,6 +93,7 @@ if has("unix")
 
     " WSL check
 	let uname = substitute(system('uname'),'\n','','')
+
 	if uname == 'Linux'
 		let lines = readfile("/proc/version")
 		if lines[0] =~ "Microsoft"

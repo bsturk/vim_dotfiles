@@ -25,6 +25,21 @@ elseif has ("win32")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" tmux split window navigation
+
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
+nnoremap <silent> <C-w>\ :TmuxNavigatePrevious<cr>
+tnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
+tnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
+tnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
+tnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
+tnoremap <silent> <C-w>\ :TmuxNavigatePrevious<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " WSL yank support
 

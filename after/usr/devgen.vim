@@ -13,6 +13,21 @@ set shiftwidth=4
 set tabstop=4
 set textwidth=9999
 
+""""""""""""""""""""""""""
+"       vim-slime
+""""""""""""""""""""""""""
+
+let g:slime_paste_file = $HOME . "/.slime_paste"
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
+let g:slime_no_mappings = 1
+
+nmap <leader>ss <Plug>SlimeLineSend
+nmap <leader>sc <Plug>SlimeSendCell
+nmap <leader>sr <Plug>SlimeParagraphSend 
+xmap <leader>sr <Plug>SlimeRegionSend
+nmap <leader>sf <Plug>SlimeConfig
+
 """"""""""""""
 
 func! AddParenSpaces(mode)
