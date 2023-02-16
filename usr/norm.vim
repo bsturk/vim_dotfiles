@@ -43,6 +43,10 @@ endif
 ""  Show date and filesize in explorer
 let g:explDetailedList = 1
 
+if has('nvim')
+    let g:python3_host_prog='/usr/bin/python3'
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUID generation
 

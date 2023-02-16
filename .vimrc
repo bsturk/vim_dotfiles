@@ -4,9 +4,6 @@ set backup
 set backupcopy=yes
 set backupext=.bak
 set browsedir=current
-if !has('nvim')
-    set clipboard=unnamed,autoselect
-endif
 set cmdheight=1
 set cmdwinheight=2
 set complete=.,w,u,b,i,d,t
@@ -22,9 +19,10 @@ set matchpairs=(:),{:},[:],<:>
 set matchtime=1
 set modeline
 set modelines=2
+" these interfere with basic select/copy/paste
+set mouse=
 set mousehide 
 set noautowrite 
-set nocompatible    " NOTE: nvim is always nocompatible
 set noeol
 set nofixeol
 set nohlsearch
@@ -63,7 +61,13 @@ set winaltkeys=menu
 set visualbell
 set t_vb=
 
-if has("autocmd")  " must be done first for some reason
+if !has('nvim')
+    set clipboard=unnamed,autoselect
+    set ttymouse=
+    set nocompatible    " NOTE: nvim is always nocompatible
+endif
+
+if has("autocmd")  " must be done first for some reason, this enables after/ftplugin stuff
     filetype plugin indent on
 endif
 
@@ -141,3 +145,28 @@ let &directory=MYTMP . '/recover'   " swap files
 runtime usr/functions.vim
 runtime usr/norm.vim
 runtime usr/devgen.vim      " done here as some plugins need variables set before loading, e.g. ALE
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/vim-easy-align'
+Plug 'ashisha/image.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'gyim/vim-boxdraw'
+Plug 'PProvost/vim-ps1'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Shougo/vinarise.vim'
+Plug 'bakudankun/pico-8.vim'
+Plug 'markbahnman/vim-pico8-color'
+Plug 'spicyjack/atari8-tools.vim'
+Plug 'bakpakin/fennel.vim'
+Plug 'caglartoklu/qb64dev.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'kovisoft/slimv'
+Plug 'jpalardy/vim-slime'
+Plug 'derekwyatt/vim-fswitch'
+Plug 'hylang/vim-hy'
+Plug 'ziglang/zig.vim'
+
+call plug#end()
+
+" NOTE: do a :PlugInstall to install everything

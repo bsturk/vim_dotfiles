@@ -2,5 +2,5 @@ Directory layout is explained here
 http://learnvimscriptthehardway.stevelosh.com/chapters/42.html
 
 'after' is the standard runtime directory layout, but all overrides
-'pack' is for vim plugins
+'plugged' is for installed [n]vim plugins via the vim-plug framework
 'usr' holds all of my custom stuff that doesn't fit into any folder under 'after'
