@@ -2,10 +2,6 @@ runtime usr/devgen.vim
 runtime usr/ccom.vim
 runtime usr/cdev.vim
 
-if has("mac") || has("macunix")
-    runtime after/usr/xcode.vim
-endif
-
 let b:match_words = '@\(implementation\|interface\):@end'
 setl inc=^\s*#\s*import omnifunc=objc#cocoacomplete#Complete
 

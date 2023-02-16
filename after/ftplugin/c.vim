@@ -1,10 +1,6 @@
 runtime usr/devgen.vim
 runtime usr/ccom.vim
 
-if has("mac") || has("macunix")
-    runtime usr/xcode.vim
-endif
-
 let g:ale_c_parse_makefile = 1
 " could not get the C/C++ linter to grok my directory structure
 "let g:ale_c_gcc_options="-Iengine"

@@ -80,17 +80,6 @@ let g:pico8_config={ 'imitate_console' : 0 }
 ""  Show date and filesize in explorer
 let g:explDetailedList = 1
 
-"" lightline status stuff
-let g:lightline = {
-  \     'active': {
-  \         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
-  \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'charvalue', 'charvaluehex']]
-  \     },
-  \     'component': {
-  \         'charvaluehex': '0x%B'
-  \     },
-  \ }
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has("win32")

@@ -139,6 +139,10 @@ let &directory=MYTMP . '/recover'   " swap files
 
 source $HOME/.vimrc-work
 
+" bootstrap all of my stuff
+runtime usr/functions.vim
+runtime usr/norm.vim
+
 colorscheme bsturk_dark
 
 if &diff
