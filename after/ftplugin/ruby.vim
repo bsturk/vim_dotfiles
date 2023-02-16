@@ -1,1 +1,1 @@
-runtime after/usr/devgen.vim
+runtime usr/devgen.vim

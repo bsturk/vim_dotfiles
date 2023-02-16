@@ -24,22 +24,17 @@ set modeline
 set modelines=2
 set mousehide 
 set noautowrite 
-set nocompatible 
+set nocompatible    " NOTE: nvim is always nocompatible
 set noeol
-if v:version >= 7.4.785
-    set nofixeol
-endif
+set nofixeol
 set nohlsearch
 set nowrap 
 set nowrapscan 
 set pastetoggle=<C-<>
 set ruler 
 set rulerformat=%25(#%n\ %m%r%y\ %P\ <%l,%c%V>%)
-" first load default paths
-set runtimepath+=$MYVIM
-set packpath+=$MYVIM
-" then my overrides
-set runtimepath+=$MYVIM/after
+set runtimepath-=~/vimfiles
+set runtimepath-=~/vimfiles/after
 set scroll=15
 set sessionoptions=buffers,curdir,folds,globals,localoptions,options,winpos,winsize
 set shiftwidth=4
@@ -76,7 +71,15 @@ if has("syntax")
     syntax on
 endif    
 
-""""""""""""""""""""" Platform specific """""""""""""""""""""""""
+let MYTMP=$TMP
+
+""""""""""""""""""""" START platform/env specific """""""""""""""""""""""""
+
+" without this, it takes over a minute to start in docker
+
+if $IN_DOCKER == 1
+	set clipboard=
+endif
 
 let g:in_wsl = 0
 
@@ -88,8 +91,7 @@ if has("unix")
     set encoding=utf8   " GTK likes this
     let $PAGER=''
 
-	set backupdir=~/.tmp/recover        " backups
-	set directory=~/.tmp/recover        " swap files
+    let MYTMP=$HOME . '/.tmp'  " I don't want these deleted on reboot, so not in /tmp
 
     " WSL check
 	let uname = substitute(system('uname'),'\n','','')
@@ -101,11 +103,17 @@ if has("unix")
         endif
     endif
 
-    source ~/.vimrc-work
-
 elseif has ("win32") || has ("win64")
-    set backupdir=$TMP/recover
-    set directory=$TMP/recover
+
+    " Windows wants to look in Users for config, point to mine
+
+    " first load default paths
+    set runtimepath+=$VIMHOME
+
+    " then my overrides
+    set runtimepath+=$VIMHOME/after
+
+    set packpath+=$VIMHOME
 
     if !(has("gui_running"))
         set shell=sh
@@ -113,8 +121,6 @@ elseif has ("win32") || has ("win64")
         set lines=90
         set columns=100
     endif
-
-    source g:/.vimrc-work
 endif    
 
 if has ("macunix")
@@ -126,10 +132,12 @@ if has ("macunix")
       endif
 endif
 
-" without this, it takes over a minute to start in docker
-if $IN_DOCKER == 1
-	set clipboard=
-endif
+""""""""""""""""""""" END platform/env specific """""""""""""""""""""""""
+
+let &backupdir=MYTMP . '/recover'   " backups
+let &directory=MYTMP . '/recover'   " swap files
+
+source $HOME/.vimrc-work
 
 colorscheme bsturk_dark
 

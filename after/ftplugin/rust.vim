@@ -1,8 +1,11 @@
-runtime after/usr/devgen.vim
+runtime usr/devgen.vim
 
 if has("mac") || has("macunix")
-    runtime after/usr/xcode.vim
+    runtime usr/xcode.vim
 endif
+
+let g:ale_linters = {'rust': ['analyzer','rls','cargo'],}
+let g:ale_fixers = { 'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'] }
 
 set cindent
 set cinoptions==0

@@ -1,6 +1,6 @@
-runtime after/usr/devgen.vim
-runtime after/usr/ccom.vim
-runtime after/usr/cdev.vim
+runtime usr/devgen.vim
+runtime usr/ccom.vim
+runtime usr/cdev.vim
 
 if has("mac") || has("macunix")
     runtime after/usr/xcode.vim

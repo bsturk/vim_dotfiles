@@ -1,2 +1,2 @@
-au FileType d    runtime after/usr/ddev.vim
-au BufEnter *.d  runtime after/usr/ddev.vim
+au FileType d    runtime usr/ddev.vim
+au BufEnter *.d  runtime usr/ddev.vim

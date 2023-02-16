@@ -1,5 +1,5 @@
-runtime after/usr/devgen.vim
-runtime after/usr/shcom.vim
+runtime usr/devgen.vim
+runtime usr/shcom.vim
 
 set cin
 set cino==0

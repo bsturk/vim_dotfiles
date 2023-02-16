@@ -1,4 +1,6 @@
 Directory layout is explained here
 http://learnvimscriptthehardway.stevelosh.com/chapters/42.html
 
-'after' is where I stick all my stuff, everything else is from somewhere on the internet
+'after' is the standard runtime directory layout, but all overrides
+'pack' is for vim plugins
+'usr' holds all of my custom stuff that doesn't fit into any folder under 'after'

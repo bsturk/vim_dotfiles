@@ -1,4 +1,4 @@
-runtime after/usr/devgen.vim
+runtime usr/devgen.vim
 
 iab zc class_name_:<C-O>b<C-O>f_
 iab zd def_func_name_( args ):<C-O>4b<C-O>f_

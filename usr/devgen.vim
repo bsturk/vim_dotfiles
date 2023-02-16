@@ -13,6 +13,24 @@ set shiftwidth=4
 set tabstop=4
 set textwidth=9999
 
+" by default don't auto close ( and ", do a ,) to toggle paredit when editing lisp langs
+let g:paredit_mode = 0
+
+""""""""""""""""""""""""""
+"          ALE
+""""""""""""""""""""""""""
+
+filetype plugin on
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_completion_enabled = 1
+let g:ale_linters            = {}       " these get populated by individual languages
+let g:ale_linters_ignore     = {}
+
+nmap <leader>ad :ALEGoToDefinition<cr>
+nmap <leader>ar :ALEFindReferences<cr>
+nmap <leader>as :ALESymbolSearch<cr>
+nmap <leader>ah :ALEHover<cr>
+
 """"""""""""""""""""""""""
 "       vim-slime
 """"""""""""""""""""""""""

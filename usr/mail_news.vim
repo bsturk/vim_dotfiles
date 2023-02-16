@@ -1,4 +1,4 @@
-runtime after/usr/devgen.vim
+runtime usr/devgen.vim
 
 set textwidth=78
 set expandtab

@@ -1,7 +1,7 @@
-runtime after/macros/selectbuffer.vim
-runtime after/macros/align.vim
-runtime after/macros/align_maps.vim
-runtime after/macros/align_regex.vim
+runtime usr/macros/selectbuffer.vim
+runtime usr/macros/align.vim
+runtime usr/macros/align_maps.vim
+runtime usr/macros/align_regex.vim
 
 iab teh the
 iab THe The

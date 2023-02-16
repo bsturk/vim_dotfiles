@@ -1,2 +1,2 @@
-au FileType csharp  runtime after/usr/cdev.vim
-au BufEnter *.cs    runtime after/usr/cdev.vim
+au FileType csharp  runtime usr/cdev.vim
+au BufEnter *.cs    runtime usr/cdev.vim
