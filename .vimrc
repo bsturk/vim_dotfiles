@@ -137,14 +137,7 @@ endif
 let &backupdir=MYTMP . '/recover'   " backups
 let &directory=MYTMP . '/recover'   " swap files
 
-source $HOME/.vimrc-work
-
 " bootstrap all of my stuff
 runtime usr/functions.vim
 runtime usr/norm.vim
-
-colorscheme bsturk_dark
-
-if &diff
-    colorscheme CodeFactoryv3
-endif
+runtime usr/devgen.vim      " done here as some plugins need variables set before loading, e.g. ALE

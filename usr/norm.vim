@@ -3,6 +3,12 @@ runtime usr/macros/align.vim
 runtime usr/macros/align_maps.vim
 runtime usr/macros/align_regex.vim
 
+colorscheme bsturk_dark
+
+if &diff
+    colorscheme CodeFactoryv3
+endif
+
 iab teh the
 iab THe The
 iab alos also
@@ -12,6 +18,33 @@ iab Becuase Because
 
 iab zdate <C-R>=strftime("%m/%d/%y")<CR>
 iab ztime <C-R>=strftime("%X")<CR>
+
+source $HOME/.vimrc-work
+
+let $VIMSH              = 1
+let g:vimsh_split_open  = 1
+
+if !has("win32")
+    let g:vimsh_pty_prompt_override = 0
+    let g:vimsh_sh_arg              = '-i'
+endif
+
+let g:selBufActKeySeq = '\ls'
+
+if has("browse")
+    let g:netrw_list_hide = '\.DS_Store'
+    let g:netrw_dirhistmax = 0
+endif
+
+if !has ("X11")     " title not restored when not compiled w/o X support
+    let &titleold=getcwd()
+endif
+
+""  Show date and filesize in explorer
+let g:explDetailedList = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GUID generation
 
 if has("unix")
     iab zguid <C-R>=system('uuidgen <Bar> tr \[:lower:\] \[:upper:\]')[:-2]<CR>
@@ -40,7 +73,6 @@ tnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
 tnoremap <silent> <C-w>\ :TmuxNavigatePrevious<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " WSL yank support
 
 if g:in_wsl == 1
@@ -52,33 +84,6 @@ if g:in_wsl == 1
         augroup END
     endif
 endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let $VIMSH              = 1
-let g:vimsh_split_open  = 1
-
-if !has("win32")
-    let g:vimsh_pty_prompt_override = 0
-    let g:vimsh_sh_arg              = '-i'
-endif
-
-let g:selBufActKeySeq = '\ls'
-
-if has("browse")
-    let g:netrw_list_hide = '\.DS_Store'
-    let g:netrw_dirhistmax = 0
-endif
-
-if !has ("X11")     " title not restored when not compiled w/o X support
-    let &titleold=getcwd()
-endif
-
-"" when using pico8 don't have tabwidth of 1 and border
-let g:pico8_config={ 'imitate_console' : 0 }
-
-""  Show date and filesize in explorer
-let g:explDetailedList = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -105,6 +110,8 @@ if has("win32")
     vmap <M-p>             <Esc>:call PrintBuffer ('Visual')<CR>
 endif
  
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 if !has ("macunix")
     nmap <leader>mn  :call ToggleShowMenu()<CR>
 endif
