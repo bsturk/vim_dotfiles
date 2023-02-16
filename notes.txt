@@ -1,1 +1,2 @@
 To paste yanks into a command buffer, press Ctrl-R and then the register you want to paste.  i.e. Ctrl-R and then ".
+image.vim is not done by vim-plug as it has local changes

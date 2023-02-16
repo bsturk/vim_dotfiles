@@ -149,7 +149,6 @@ runtime usr/devgen.vim      " done here as some plugins need variables set befor
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-easy-align'
-Plug 'ashisha/image.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'gyim/vim-boxdraw'
 Plug 'PProvost/vim-ps1'
@@ -166,6 +165,9 @@ Plug 'jpalardy/vim-slime'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'hylang/vim-hy'
 Plug 'ziglang/zig.vim'
+
+" this one is no longer updated, and I've made changes to it
+Plug '~/.vim/plugged/image.vim'
 
 call plug#end()
 
