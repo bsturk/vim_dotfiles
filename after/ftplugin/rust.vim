@@ -1,12 +1,5 @@
 runtime usr/devgen.vim
 
-let g:ale_linters = {'rust': ['analyzer','rls','cargo'],}
-let g:ale_fixers = { 'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines'] }
-let g:ale_rust_rustfmt_options = '--edition 2018'
-let g:ale_rust_cargo_use_clippy = 1
-let g:ale_rust_cargo_check_tests = 1 
-let g:ale_rust_cargo_check_examples = 1
-
 set cindent
 set cinoptions==0
 
@@ -17,3 +10,18 @@ iab z?      ////////////////////////////////////////////////////////////////////
 iab z/      ///////////////////////////////////
 iab z\      /*<CR><Tab>**********************************************************<CR><CR>**********************************************************<CR><C-D>*/<Up><Up><Tab>
 iab z*      /******************************************************************************/
+
+
+setlocal omnifunc=v:lua.vim.lsp.omnifunc
+nnoremap <buffer><silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <buffer><silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <buffer><silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <buffer><silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <buffer><silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+"nnoremap<buffer> <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <buffer><silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <buffer><silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <buffer><silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+
+setlocal signcolumn=yes  "prevent text shifting with lsp errors
+setlocal completeopt=menu,noinsert,noselect,menuone

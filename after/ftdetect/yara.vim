@@ -1,1 +1,1 @@
-au BufEnter *.yara      set syntax=yara | set ft=yara
+au BufEnter,BufNewFile *.yara      set ft=yara

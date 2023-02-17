@@ -1,2 +1,5 @@
 To paste yanks into a command buffer, press Ctrl-R and then the register you want to paste.  i.e. Ctrl-R and then ".
+
+For nvim to work w/ my config, there needs to be a symlink called ~/.vim/init.vim that points to ~/.vim/.vimrc and also a symlink from ~/.config/nvim to ~/.vim
+
 image.vim is not done by vim-plug as it has local changes

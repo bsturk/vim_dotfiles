@@ -1,2 +1,1 @@
-au BufEnter *.mak                                   set ft=make
-au Filetype make                                    set noexpandtab
+au BufRead,BufNewFile *.mak                  set ft=make

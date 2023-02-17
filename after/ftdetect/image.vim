@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.png,*.jpg,*.jpeg set filetype=image
+au BufRead,BufNewFile *.png,*.jpg,*.jpeg set filetype=image

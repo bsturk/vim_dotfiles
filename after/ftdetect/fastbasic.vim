@@ -1,1 +1,1 @@
-au BufEnter *.fb      set syntax=fastbasic | set ft=fastbasic | set gfn=Atari_ASCII:h9:cANSI:qDRAFT
+au BufRead,BufNewFile *.fb      set ft=fastbasic

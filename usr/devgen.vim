@@ -1,5 +1,6 @@
-" Stuff that should be done everytime this file is sourced
-" should go below here...
+"if has('nvim')
+    "runtime usr/devgen.lua
+"endif
 
 set expandtab
 set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:- 
@@ -18,6 +19,8 @@ let g:pico8_config={ 'imitate_console' : 0 }
 
 " by default don't auto close ( and ", do a ,) to toggle paredit when editing lisp langs
 let g:paredit_mode = 0
+
+set completeopt="menuone,noinsert,noselect"
 
 """"""""""""""""""""""""""
 "       vim-slime

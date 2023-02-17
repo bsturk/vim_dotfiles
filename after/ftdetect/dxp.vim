@@ -1,1 +1,1 @@
-au BufEnter *.dxp                                   set ft=xml
+au BufRead,BufNewFile *.dxp                 set ft=xml

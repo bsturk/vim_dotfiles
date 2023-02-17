@@ -1,1 +1,1 @@
-au BufRead .fvwm2rc                                 set syntax=fvwm | set ft=fvwm | set textwidth=200
+au BufRead,BufNewFile .fvwm2rc               set ft=fvwm

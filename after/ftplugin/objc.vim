@@ -1,6 +1,5 @@
 runtime usr/devgen.vim
 runtime usr/ccom.vim
-runtime usr/cdev.vim
 
 let b:match_words = '@\(implementation\|interface\):@end'
 setl inc=^\s*#\s*import omnifunc=objc#cocoacomplete#Complete

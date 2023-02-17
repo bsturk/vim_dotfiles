@@ -36,7 +36,7 @@ set runtimepath-=~/vimfiles/after
 set scroll=15
 set sessionoptions=buffers,curdir,folds,globals,localoptions,options,winpos,winsize
 set shiftwidth=4
-set shortmess=aAoOtI	" make messages fit into one line
+set shortmess=aAoOtIc	" make messages fit into one line
 set showcmd
 set showmatch 
 set showmode 
@@ -144,10 +144,17 @@ let &directory=MYTMP . '/recover'   " swap files
 " bootstrap all of my stuff
 runtime usr/functions.vim
 runtime usr/norm.vim
-runtime usr/devgen.vim      " done here as some plugins need variables set before loading, e.g. ALE
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-lua/lsp-status.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'BurntSushi/ripgrep'
 Plug 'junegunn/vim-easy-align'
 Plug 'itchyny/lightline.vim'
 Plug 'gyim/vim-boxdraw'
@@ -160,11 +167,20 @@ Plug 'spicyjack/atari8-tools.vim'
 Plug 'bakpakin/fennel.vim'
 Plug 'caglartoklu/qb64dev.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'simrat39/rust-tools.nvim'
 Plug 'kovisoft/slimv'
 Plug 'jpalardy/vim-slime'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'hylang/vim-hy'
 Plug 'ziglang/zig.vim'
+Plug 'j-hui/fidget.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
 " this one is no longer updated, and I've made changes to it
 Plug '~/.vim/plugged/image.vim'
@@ -172,3 +188,12 @@ Plug '~/.vim/plugged/image.vim'
 call plug#end()
 
 " NOTE: do a :PlugInstall to install everything
+
+" this has to be in this file, and after plugins above 
+" not devgen.vim or in a ftdetect/ftplugin autocmd as it creates its
+" own autocmd to trigger on file opens of matching type
+" so would only work after subsequent file opens, etc
+
+if has('nvim') 
+    runtime usr/lsp.lua
+endif

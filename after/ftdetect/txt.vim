@@ -1,1 +1,1 @@
-au BufRead *.txt,TODO                               set textwidth=80
+au BufRead,BufNewFile TODO                               set ft=text

@@ -1,1 +1,1 @@
-au BufRead .emacs,.viper                            set syntax=lisp | set ft=lisp
+au BufRead,BufNewFile .emacs,.viper                            set ft=lisp
