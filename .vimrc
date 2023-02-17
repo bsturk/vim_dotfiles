@@ -77,6 +77,14 @@ endif
 
 let MYTMP=$TMP
 
+" first load default paths
+set runtimepath+=$VIMHOME
+
+" then my overrides
+set runtimepath+=$VIMHOME/after
+
+set packpath+=$VIMHOME
+
 """"""""""""""""""""" START platform/env specific """""""""""""""""""""""""
 
 " without this, it takes over a minute to start in docker
@@ -110,14 +118,6 @@ if has("unix")
 elseif has ("win32") || has ("win64")
 
     " Windows wants to look in Users for config, point to mine
-
-    " first load default paths
-    set runtimepath+=$VIMHOME
-
-    " then my overrides
-    set runtimepath+=$VIMHOME/after
-
-    set packpath+=$VIMHOME
 
     if !(has("gui_running"))
         set shell=sh

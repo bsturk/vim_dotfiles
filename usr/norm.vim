@@ -19,7 +19,7 @@ iab Becuase Because
 iab zdate <C-R>=strftime("%m/%d/%y")<CR>
 iab ztime <C-R>=strftime("%X")<CR>
 
-source $HOME/.vimrc-work
+source $VIMHOME/.vimrc-work
 
 let $VIMSH              = 1
 let g:vimsh_split_open  = 1
