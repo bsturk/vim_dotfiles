@@ -2,4 +2,6 @@ To paste yanks into a command buffer, press Ctrl-R and then the register you wan
 
 For nvim to work w/ my config, there needs to be a symlink called ~/.vim/init.vim that points to ~/.vim/.vimrc and also a symlink from ~/.config/nvim to ~/.vim
 
-image.vim is not done by vim-plug as it has local changes
+packer plugin manager saves things to ~/.local/share/nvim/
+
+image.vim is not done by packer as it has local changes
