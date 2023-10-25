@@ -8,7 +8,7 @@ set browsedir=current
 set cmdheight=1
 set cmdwinheight=2
 set complete=.,w,u,b,i,d,t
-set completeopt="noinsert,noselect"
+set completeopt="menu,noinsert,noselect"
 set confirm 
 set cpoptions+=B
 set expandtab

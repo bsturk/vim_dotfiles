@@ -24,3 +24,4 @@ nnoremap <buffer><silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <buffer><silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
 setlocal signcolumn=yes  "prevent text shifting with lsp errors
+setlocal completeopt=menu,noinsert,noselect,menuone
