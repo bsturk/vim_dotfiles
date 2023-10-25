@@ -1,7 +1,7 @@
 return {
     'nvim-lua/plenary.nvim',
     'nvim-lua/popup.nvim',
-    'nvim-telescope/telescope.nvim',
+    -- 'nvim-telescope/telescope.nvim',
     'BurntSushi/ripgrep',
     'junegunn/vim-easy-align',
     'gyim/vim-boxdraw',

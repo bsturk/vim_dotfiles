@@ -3,10 +3,12 @@ set backspace=indent,eol,start
 set backup 
 set backupcopy=yes
 set backupext=.bak
+set belloff=all
 set browsedir=current
 set cmdheight=1
 set cmdwinheight=2
 set complete=.,w,u,b,i,d,t
+set completeopt="noinsert,noselect"
 set confirm 
 set cpoptions+=B
 set expandtab
@@ -24,6 +26,7 @@ set mouse=
 set mousehide 
 set noautowrite 
 set noeol
+set noerrorbells
 set nofixeol
 set nohlsearch
 set nowrap 

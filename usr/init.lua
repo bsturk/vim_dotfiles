@@ -21,4 +21,10 @@ require("lazy").setup("plugins")
 
 -- my LSP settings in ~/.vim/lua/lsp.lua
 
-require("lsp")
+-- print("win32: ", vim.fn.has("win32"))
+-- print("win64: ", vim.fn.has("win64"))
+-- print("WSL: ", vim.g.in_wsl)
+
+if not vim.fn.has("win32") and not vim.fn.has("win64") and vim.g.in_wsl == 1 then
+    require("lsp")
+end
