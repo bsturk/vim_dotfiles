@@ -97,10 +97,10 @@ if $IN_DOCKER == 1
 endif
 
 let g:in_wsl = 0
+set shell=bash
 
 if has("unix")
     set diffopt-=internal       " UNIX platforms use external tool and may not have been compiled with support for internal diff
-    set shell=bash
     set guioptions+=F
     set guifont=Monospace\ 10,Bitstream\ Vera\ Sans\ Mono\ 12,Monospace\ 8,Terminal\ 10,MiscFixed\ 8
     set encoding=utf8   " GTK likes this
@@ -117,17 +117,12 @@ if has("unix")
             let g:in_wsl = 1
         endif
     endif
+endif
 
-elseif has ("win32") || has ("win64")
-
-    " Windows wants to look in Users for config, point to mine
-
-    if !(has("gui_running"))
-        set shell=sh
-    else
-        set lines=90
-        set columns=100
-    endif
+if has ('win32') && has('gui_running')
+    set lines=90
+    set columns=100
+    set shell=cmd.exe
 endif    
 
 if has ("macunix")
@@ -136,7 +131,7 @@ if has ("macunix")
 
     if !has('gui_running')
           set t_Co=256
-      endif
+    endif
 endif
 
 """"""""""""""""""""" END platform/env specific """""""""""""""""""""""""

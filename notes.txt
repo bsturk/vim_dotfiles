@@ -2,6 +2,11 @@ To paste yanks into a command buffer, press Ctrl-R and then the register you wan
 
 For nvim to work w/ my config, there needs to be a symlink called ~/.vim/init.vim that points to ~/.vim/.vimrc and also a symlink from ~/.config/nvim to ~/.vim
 
-packer plugin manager saves things to ~/.local/share/nvim/
+I use the lazy package manager
+https://github.com/folke/lazy.nvim, see ~/.vim/usr/init.lua
+plugins I use are listed in ~/.vim/lua/plugins.lua
+plugins are installed to ~/.local/share/nvim/lazy
 
 image.vim is not done by packer as it has local changes
+
+my LSP settings in ~/.vim/lua/lsp.lua

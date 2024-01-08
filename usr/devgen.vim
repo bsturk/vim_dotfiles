@@ -21,19 +21,15 @@ let g:pico8_config={ 'imitate_console' : 0 }
 let g:paredit_mode = 0
 
 """"""""""""""""""""""""""
-"       vim-slime
+"       vimcmdline
 """"""""""""""""""""""""""
 
-let g:slime_paste_file = $HOME . "/.slime_paste"
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
-let g:slime_no_mappings = 1
-
-nmap <leader>ss <Plug>SlimeLineSend
-nmap <leader>sc <Plug>SlimeSendCell
-nmap <leader>sr <Plug>SlimeParagraphSend 
-xmap <leader>sr <Plug>SlimeRegionSend
-nmap <leader>sf <Plug>SlimeConfig
+" this starts vimcmdline
+let cmdline_map_start          = '<LocalLeader>z'
+" this sends the entire line when in insert mode, etc
+let cmdline_map_send_paragraph = '<LocalLeader>e'
+" NOTE: you can select in visual mode and press <SPACE> to send it all or in
+"       normal mode press <SPACE> to send the current line
 
 """"""""""""""
 

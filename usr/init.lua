@@ -17,7 +17,22 @@ vim.opt.rtp:prepend(lazypath)
 
 -- plugins I use are listed in ~/.vim/lua/plugins.lua
 
-require("lazy").setup("plugins")
+-- !! This attempts to have a common place for all the plugins
+--    but it is SUPER slow launching on Windows
+--    The easiest thing to do is just to continually copy over the plugins
+--    to the AppData\Local\nvim-data\lazy directory
+
+-- local plugin_path
+
+-- if vim.fn.has("gui_running") and vim.fn.has("win32") then
+    -- plugin_path = "G:/.local/share/nvim/lazy"
+-- else
+    -- plugin_path = vim.fn.stdpath("data") .. "/lazy"
+-- end
+
+require("lazy").setup( {
+	-- root = plugin_path,      -- only enable this if the above, commented out logic is being used
+	spec = "plugins" } )
 
 -- my LSP settings in ~/.vim/lua/lsp.lua
 

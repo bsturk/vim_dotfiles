@@ -64,7 +64,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tmux split window navigation
 
-if !has("gui_running")      " won't be in tmux if GUI
+if has("nvim") && !has("gui_running")      " won't be in tmux if GUI, and nvim only
     if !empty($TMUX)
         let g:tmux_navigator_no_mappings = 1
         nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
