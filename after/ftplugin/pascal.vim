@@ -19,13 +19,18 @@ set guicursor=r-n-v-c:blinkon0
 highlight iCursor guifg=white guibg=green
 highlight nCursor guifg=white guibg=yellow
 
-function! AbbreviationBackspace()
-    " Check if in insert mode and last character is a space
-    if mode() == 'i' && getline('.')[col('.') - 1] == ' '
-        " Perform backspace
-        call feedkeys("\<BS>", 'n')
-    endif
-endfunction
+iab <silent> zb begin<CR><C-D>end;<Esc>O<C-R>=Eatchar(' ')<CR>
+iab <silent> zc case VALUE of<CR><C-D>end;<Esc>O<Tab><C-R>=Eatchar(' ')<CR>
+"iab <silent> zc case VALUE of<CR><Tab>VAL:<C-D>end;<Esc><C-R>=Eatchar(' ')<CR>
+iab <silent> ze else<CR><C-D><Tab>;<Esc><C-R>=Eatchar(' ')<CR>
+iab <silent> zi if<Space>then<Left><Left><Left><Left><Left>
+iab <silent> zp procedure
+iab <silent> zr repeat<CR><C-D>until COND;<Esc>O<C-R>=Eatchar(' ')<CR>
+iab <silent> zu uses;<Left>
+iab <silent> zw while COND do<CR><C-D><Esc>O<C-R>=Eatchar(' ')<CR>
+iab <silent> z{ {}<Left>
 
-iab z{ {}<Left>
-iab <silent> zb begin<CR><C-d>end<Esc>O<C-R>=Eatchar(' ')<CR>
+iab <silent> zfu function
+iab <silent> zpr program
+iab <silent> zrl readln();<Left><Left>
+iab <silent> zwl writeln();<Left><Left>
