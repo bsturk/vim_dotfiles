@@ -12,3 +12,4 @@ iab zw    while ; do<CR><CR>done<CR><Up><Up><Up><C-O>f
 iab zeof  cat >TODO_FILENAME << "EOF"<CR><CR>EOF<Up><Up><C-O>fT
 iab z* ################################################################################
 iab z/ #############
+iab zz    {<CR>}<Up>

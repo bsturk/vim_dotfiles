@@ -19,15 +19,15 @@ iab z/ #############
 set wildignore+=*.pyc
 set expandtab
 
-nmap  <leader>vb   [[V]]
-nmap  <leader>vc   :call PythonSelectObject("class")<CR>
-nmap  <leader>vf   :call PythonSelectObject("function")<CR>
+nmap <leader>vb [[V]]
+nmap <leader>vc :call PythonSelectObject("class")<CR>
+nmap <leader>vf :call PythonSelectObject("function")<CR>
 
 nmap ]c :call PythonDec("class", 1)<CR>
 nmap [c :call PythonDec("class", -1)<CR>
 nmap ]f :call PythonDec("function", 1)<CR>
 nmap [f :call PythonDec("function", -1)<CR>
-map  ]k  :call PythonNextLine(-1)<CR>
-map  ]j  :call PythonNextLine(1)<CR>
+map  ]k :call PythonNextLine(-1)<CR>
+map  ]j :call PythonNextLine(1)<CR>
 
 set cinwords=class,def,elif,else,except,finally,for,if,try,while

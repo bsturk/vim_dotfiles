@@ -4,7 +4,7 @@ set cindent
 set cinoptions==0
 
 iab zi      if <CR>{<CR>}<C-O><Up><Up><C-O>f(<Right>
-iab zz      {<CR>}<Up>
+iab zz      {<CR>}<Up><C-R>=Eatchar(' ')<CR>
 
 iab z?      //////////////////////////////////////////////////////////////////////
 iab z/      ///////////////////////////////////

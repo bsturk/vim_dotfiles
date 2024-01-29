@@ -14,9 +14,6 @@ set shiftwidth=4
 set tabstop=4
 set textwidth=9999
 
-"" when using pico8 don't have tabwidth of 1 and border
-let g:pico8_config={ 'imitate_console' : 0 }
-
 " by default don't auto close ( and ", do a ,) to toggle paredit when editing lisp langs
 let g:paredit_mode = 0
 
@@ -71,6 +68,13 @@ endfun
 
 """"""""""""""
 
+func Eatchar(pat)
+    let c = nr2char(getchar(0))
+    return (c =~ a:pat) ? '' : c
+endfunc
+
+""""""""""""""
+
 if &diff
      map \is :call IwhiteToggle()<CR>
      function! IwhiteToggle()
@@ -80,7 +84,7 @@ if &diff
          set diffopt+=iwhiteall
        endif
      endfunction
- endif
+endif
 
 map      \fo     :let &fen = !&fen<CR>
 noremap  \((     :call AddParenSpaces('Normal')<CR>

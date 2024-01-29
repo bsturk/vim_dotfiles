@@ -20,8 +20,14 @@ return {
     'ziglang/zig.vim',
     'bakpakin/fennel.vim',
 
+    -- Rust
+
     'rust-lang/rust.vim',
     'BurntSushi/ripgrep',           -- dependency for rust-lang, a binary
+
+    -- Pascal
+
+    'mattia72/vim-delphi',
 
     -- vintage computer stuff
 
