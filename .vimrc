@@ -75,12 +75,8 @@ endif
 
 let MYTMP=$TMP
 
-" first load default paths
 set runtimepath+=$VIMHOME
-
-" then my overrides
 set runtimepath+=$VIMHOME/after
-
 set packpath+=$VIMHOME
 
 """"""""""""""""""""" START platform/env specific """""""""""""""""""""""""
@@ -115,8 +111,6 @@ if has("unix")
 endif
 
 if has ('win32') || has( 'win64' ) && has('gui_running')
-    set lines=90
-    set columns=100
     set shell=cmd.exe
 
     " point to my nvim-data dir on the server so there aren't duplicate
@@ -147,7 +141,12 @@ if has('nvim')
     runtime usr/init.lua
 endif
 
+" set again as some plugin blows this away
+set runtimepath+=$VIMHOME
+set runtimepath+=$VIMHOME/after
+
 " these are done after plugins due to some plugins setting mouse=a
 " these interfere with basic select/copy/paste
+
 set mouse=
 set mousehide 
