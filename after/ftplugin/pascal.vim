@@ -11,6 +11,9 @@ colorscheme borland
 
 set gfn=Bm437_IBM_VGA_8x14:h11:cOEM:qDRAFT
 
+" fpc
+set errorformat=%f(%l\\,%c)\ %m
+
 set termguicolors
 set guicursor=n-v-c:block-Cursor
 set guicursor=i:ver50-iCursor

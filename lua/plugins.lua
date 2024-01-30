@@ -27,7 +27,7 @@ return {
 
     -- Pascal
 
-    'mattia72/vim-delphi',
+    'mattia72/vim-delphi',          -- NOTE: this sets mouse=a, I have an autocmd to get around it
 
     -- vintage computer stuff
 

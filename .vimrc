@@ -21,9 +21,6 @@ set matchpairs=(:),{:},[:],<:>
 set matchtime=1
 set modeline
 set modelines=2
-" these interfere with basic select/copy/paste
-set mouse=
-set mousehide 
 set noautowrite 
 set noeol
 set noerrorbells
@@ -34,8 +31,6 @@ set nowrapscan
 set pastetoggle=<C-<>
 set ruler 
 set rulerformat=%25(#%n\ %m%r%y\ %P\ <%l,%c%V>%)
-set runtimepath-=~/vimfiles
-set runtimepath-=~/vimfiles/after
 set scroll=15
 set sessionoptions=buffers,curdir,folds,globals,localoptions,options,winpos,winsize
 set shiftwidth=4
@@ -119,10 +114,15 @@ if has("unix")
     endif
 endif
 
-if has ('win32') && has('gui_running')
+if has ('win32') || has( 'win64' ) && has('gui_running')
     set lines=90
     set columns=100
     set shell=cmd.exe
+
+    " point to my nvim-data dir on the server so there aren't duplicate
+    " plugins or out of sync
+
+    let $XDG_DATA_HOME = 'g:\.local\share'
 endif    
 
 if has ("macunix")
@@ -146,3 +146,8 @@ runtime usr/norm.vim
 if has('nvim') 
     runtime usr/init.lua
 endif
+
+" these are done after plugins due to some plugins setting mouse=a
+" these interfere with basic select/copy/paste
+set mouse=
+set mousehide 

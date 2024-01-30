@@ -1,11 +1,12 @@
 To paste yanks into a command buffer, press Ctrl-R and then the register you want to paste.  i.e. Ctrl-R and then ".
 
-For nvim to work w/ my config, there needs to be a symlink called ~/.vim/init.vim that points to ~/.vim/.vimrc and also a symlink from ~/.config/nvim to ~/.vim
-
 I use the lazy package manager
 https://github.com/folke/lazy.nvim, see ~/.vim/usr/init.lua
 plugins I use are listed in ~/.vim/lua/plugins.lua
 plugins are installed to ~/.local/share/nvim/lazy
+
+For nvim to work w/ my config in a Linux environment, there needs to be a symlink called ~/.vim/init.vim that points to ~/.vim/.vimrc and also a symlink from ~/.config/nvim to ~/.vim
+For nvim to work w/ my config in a Windows environment, either git for Windows needs to be installed (for lazy) or plugin folders need to be copied to ~/AppData/Local/nvim-data/lazy
 
 image.vim is not done by packer as it has local changes
 
