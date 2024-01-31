@@ -141,12 +141,4 @@ if has('nvim')
     runtime usr/init.lua
 endif
 
-" set again as some plugin blows this away
-set runtimepath+=$VIMHOME
-set runtimepath+=$VIMHOME/after
-
-" these are done after plugins due to some plugins setting mouse=a
-" these interfere with basic select/copy/paste
-
-set mouse=
-set mousehide 
+runtime usr/plugin_overrides.vim

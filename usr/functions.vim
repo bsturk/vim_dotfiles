@@ -47,7 +47,7 @@ func! ToggleShowColumn80()
     if &number == 1
         set colorcolumn=80
     else
-        set colorcolumn=""
+        set colorcolumn=0
     endif
 endfunc
 

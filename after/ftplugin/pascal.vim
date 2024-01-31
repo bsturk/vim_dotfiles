@@ -3,9 +3,7 @@ runtime usr/devgen.vim
 let g:pascal_fpc=1
 let g:pascal_delphi=1
 
-set colorcolumn=80
 set foldmethod=marker
-set filetype=pascal.doxygen
 
 colorscheme borland
 
