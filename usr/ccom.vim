@@ -1,5 +1,7 @@
 set cindent
-set cinoptions==0
+set cinoptions=
+
+noremap <leader>hf :call FSwitch('%', '')<CR>
 
 iab za      assert ( );<C-O>2h
 iab zc      catch ( )<CR>{<CR>}<C-O><Up><Up><C-O>f(<Right>

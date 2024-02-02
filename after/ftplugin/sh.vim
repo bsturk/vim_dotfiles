@@ -1,7 +1,7 @@
 runtime usr/devgen.vim
 
 set cin
-set cino==0
+set cino=
 
 iab zc    case "TODO" in<CR>case1)<CR>TODO_LOGIC<CR>;;<CR>*)<CR>TODO_LOGIC<CR>;;<CR>esac<CR>
 iab ze    echo " "<C-O>2h

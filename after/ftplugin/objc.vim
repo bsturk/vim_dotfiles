@@ -6,11 +6,9 @@ setl inc=^\s*#\s*import omnifunc=objc#cocoacomplete#Complete
 
 set define=^\(#\s*define\|[a-z]*\s*const\s*[a-z]*\)
 
-noremap <leader>hf   :call FSwitch('%', '')<CR>
-
-iab #i      #import
-iab @i      @interface
-iab @I      @implementation
-iab @e      @end
-iab zp      @public
-iab zP      @protected
+iab #i #import
+iab @i @interface
+iab @I @implementation
+iab @e @end
+iab zp @public
+iab zP @protected

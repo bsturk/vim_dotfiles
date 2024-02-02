@@ -15,6 +15,5 @@ iab #p  package
 iab zpr System.out.println( );<C-O>2h
 iab zS  static
 
-"let java_highlight_functions="style"
 let java_highlight_java_lang_ids=1
 let java_allow_cpp_keywords=1

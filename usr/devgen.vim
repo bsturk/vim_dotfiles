@@ -1,7 +1,3 @@
-"if has('nvim')
-    "runtime usr/devgen.lua
-"endif
-
 set expandtab
 set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:- 
 set foldlevel=0 

@@ -17,7 +17,6 @@ iab z/ #############
 "  python.vim macro overrides
 
 set wildignore+=*.pyc
-set expandtab
 
 nmap <leader>vb [[V]]
 nmap <leader>vc :call PythonSelectObject("class")<CR>

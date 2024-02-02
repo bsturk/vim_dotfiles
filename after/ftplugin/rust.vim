@@ -1,7 +1,7 @@
 runtime usr/devgen.vim
 
 set cindent
-set cinoptions==0
+set cinoptions=
 
 iab zi      if <CR>{<CR>}<C-O><Up><Up><C-O>f(<Right>
 iab zz      {<CR>}<Up><C-R>=Eatchar(' ')<CR>
