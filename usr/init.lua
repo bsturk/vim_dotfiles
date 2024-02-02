@@ -29,10 +29,3 @@ require("lazy").setup( {
 if not vim.fn.has("win32") and not vim.fn.has("win64") and vim.g.in_wsl == 1 then
     require("lsp")
 end
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "delphi",
-    callback = function()
-        vim.cmd("Lazy load vim-delphi")
-    end,
-})

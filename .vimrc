@@ -114,9 +114,11 @@ if has ('win32') || has( 'win64' ) && has('gui_running')
     set shell=cmd.exe
 
     " point to my nvim-data dir on the server so there aren't duplicate
-    " plugins or out of sync
+    " plugins or out of sync.  Allow for overrides when @ work, etc
 
-    let $XDG_DATA_HOME = 'g:\.local\share'
+    if empty($XDG_DATA_HOME)
+        let $XDG_DATA_HOME = 'g:\.local\share'
+    endif
 endif    
 
 if has ("macunix")
