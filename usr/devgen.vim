@@ -17,10 +17,12 @@ let g:paredit_mode = 0
 "       vimcmdline
 """"""""""""""""""""""""""
 
-" this starts vimcmdline
-let cmdline_map_start          = '<LocalLeader>z'
+" this starts vimcmdline if editing a supported filetype
+let cmdline_map_start          = '<leader>s'
+
 " this sends the entire line when in insert mode, etc
-let cmdline_map_send_paragraph = '<LocalLeader>e'
+let cmdline_map_send_paragraph = '<leader>e'
+
 " NOTE: you can select in visual mode and press <SPACE> to send it all or in
 "       normal mode press <SPACE> to send the current line
 
@@ -82,11 +84,11 @@ if &diff
      endfunction
 endif
 
-map      \fo     :let &fen = !&fen<CR>
-noremap  \((     :call AddParenSpaces('Normal')<CR>
-vnoremap \((     <Esc>:call AddParenSpaces('Visual')<CR>
-noremap  \(s     :call SurroundWordWithParen('Normal')<CR>
-vnoremap \(s     <Esc>:call SurroundWordWithParen('Visual')<CR>
+map      <leader>fo     :let &fen = !&fen<CR>
+noremap  <leader>((     :call AddParenSpaces('Normal')<CR>
+vnoremap <leader>((     <Esc>:call AddParenSpaces('Visual')<CR>
+noremap  <leader>(s     :call SurroundWordWithParen('Normal')<CR>
+vnoremap <leader>(s     <Esc>:call SurroundWordWithParen('Visual')<CR>
 
 " cscope
 noremap g<C-]>   :cs find 3 <C-R>=expand("<cword>")<CR><CR>

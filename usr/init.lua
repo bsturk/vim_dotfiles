@@ -1,3 +1,5 @@
+-- print(vim.api.nvim_get_option('runtimepath'))
+
 -- bootstrap lazy plugin manager
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

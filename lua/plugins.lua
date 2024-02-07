@@ -12,6 +12,7 @@ return {
 
     'jalvesaq/vimcmdline',          -- all purpose REPL support in nvim's terminal, sends code to a repl
     'axvr/zepl.vim',
+    -- 'Olical/conjure',               -- all purpose REPL support in nvim's terminal or stdio
 
     -- LANG/SYNTAX SUPPORT --
 
