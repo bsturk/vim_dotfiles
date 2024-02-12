@@ -22,6 +22,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup( {
 	spec = "plugins" } )
 
+require("cscope_maps").setup()
+
 -- my LSP settings in ~/.vim/lua/lsp.lua
 
 -- print("win32: ", vim.fn.has("win32"))
