@@ -87,6 +87,12 @@ return {
         lazy = true
 	},
     
+	{
+        'dhananjaylatkar/cscope_maps.nvim',
+		ft = { 'c', 'cpp' },
+        lazy = true
+	},
+
     -- vintage computer stuff --
 
 	{

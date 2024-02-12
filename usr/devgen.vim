@@ -26,6 +26,9 @@ let cmdline_map_send_paragraph = '<leader>e'
 " NOTE: you can select in visual mode and press <SPACE> to send it all or in
 "       normal mode press <SPACE> to send the current line
 
+" this map be populated as needed in ftplugins
+let cmdline_app = {}
+
 """"""""""""""
 
 func! AddParenSpaces(mode)
