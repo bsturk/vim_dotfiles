@@ -96,8 +96,7 @@ return {
             "nvim-tree/nvim-web-devicons", -- optional [for devicons in telescope or fzf]
         },
         opts = {
-          -- USE EMPTY FOR DEFAULT OPTIONS
-          -- DEFAULTS ARE LISTED BELOW
+            prefix = "<space>c", -- prefix to trigger maps
         },
 		ft = { 'c', 'cpp' },
         lazy = true
