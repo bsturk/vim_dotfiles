@@ -6,7 +6,8 @@ autocmd FileType delphi syntax clear delphiSpaceError
 " sets mouse=a and that interferes with basic select/copy/paste in a terminal
 " reset to my values again
 
-set mouse=
+autocmd FileType delphi set mouse=
+
 set mousehide 
 
 "" ----- unknown plugin or lazy framework ----- 
