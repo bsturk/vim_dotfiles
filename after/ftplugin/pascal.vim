@@ -1,24 +1,13 @@
 runtime usr/devgen.vim
+runtime usr/themes/borland.vim
 
 let g:pascal_fpc=1
 let g:pascal_delphi=1
 
 set foldmethod=marker
 
-colorscheme borland
-
-set gfn=Bm437_IBM_VGA_8x14:h11:cOEM:qDRAFT
-
 " fpc
 set errorformat=%f(%l\\,%c)\ %m
-
-set termguicolors
-set guicursor=n-v-c:block-Cursor
-set guicursor=i:ver50-iCursor
-set guicursor=r-n-v-c:blinkon0
-
-highlight iCursor guifg=white guibg=green
-highlight nCursor guifg=white guibg=yellow
 
 iab <silent> zb begin<CR><C-D>end;<Esc>O<C-R>=Eatchar(' ')<CR>
 iab <silent> zc case VALUE of<CR><C-D>end;<Esc>O<Tab><C-R>=Eatchar(' ')<CR>

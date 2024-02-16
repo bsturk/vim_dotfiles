@@ -1,4 +1,4 @@
 runtime usr/devgen.vim
+runtime usr/themes/atari_800.vim
 
 set syntax=fastbasic
-set gfn=Atari_ASCII:h9:cANSI:qDRAFT

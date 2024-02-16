@@ -3,10 +3,10 @@
 " this prevents leading whitespace from being red
 autocmd FileType delphi syntax clear delphiSpaceError
 
-" sets mouse=a and that interferes with basic select/copy/paste in a terminal
+" sets mouse=a is done by the delphi plugin and that interferes with basic select/copy/paste in a terminal
 " reset to my values again
 
-autocmd FileType delphi set mouse=
+autocmd FileType * set mouse=
 
 set mousehide 
 
