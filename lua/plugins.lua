@@ -73,11 +73,11 @@ return {
 
     -- Pascal
 
-	{
-		'mattia72/vim-delphi',          -- NOTE: this sets mouse=a, I have an autocmd to get around it
-		ft = { 'pascal', 'delphi' },
-        lazy = true
-	},
+	-- {
+		-- 'mattia72/vim-delphi',          -- NOTE: disabled, this sets mouse=a, I have an autocmd to get around it and it doesn't work
+		-- ft = { 'pascal', 'delphi' },
+        -- lazy = true
+	-- },
 
 	-- C/C++
 
@@ -120,11 +120,12 @@ return {
     },
 
     -- general dev --
+    -- NOTE: currently disabled as it automatically assumes fastbasic files are binary
 
-    { 
-		'RaafatTurki/hex.nvim', 
-	    config = true 
-    },
+    -- { 
+		-- 'RaafatTurki/hex.nvim', 
+	    -- config = true 
+    -- },
 
     -- LSP related --
 

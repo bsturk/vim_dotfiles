@@ -85,6 +85,8 @@ if &diff
          set diffopt+=iwhiteall
        endif
      endfunction
+
+     colorscheme babymate256
 endif
 
 map      <leader>fo     :let &fen = !&fen<CR>
