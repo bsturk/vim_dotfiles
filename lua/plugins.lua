@@ -2,11 +2,67 @@ return {
 
     -- NVIM DEPENDENCIES --
 
-    'nvim-lua/plenary.nvim',        -- async Lua using co-routines, needed for popup below
-    'nvim-lua/popup.nvim',          -- port of popup API from vim to nvim
+    'nvim-lua/plenary.nvim',
 
-    'junegunn/vim-easy-align',
-    'gyim/vim-boxdraw',
+    {
+      "nvim-treesitter/nvim-treesitter",
+
+      -- load if not on Windows
+      cond = function()
+      	return not (jit and jit.os and jit.os:find("Windows"))
+      end,
+      build = ":TSUpdate",
+      config = function()
+          require("nvim-treesitter.configs").setup 
+          {
+              ensure_installed = { "c", "lua", "rust", "markdown", "markdown_inline" },
+              highlight = { enable = true, }
+          }
+      end
+    },
+    -- LSP RELATED --
+
+    'neovim/nvim-lspconfig',
+
+    {
+      'williamboman/mason.nvim',
+      build = ":MasonUpdate", -- Ensures Mason's registry is updated and installs new tools marked for installation
+      config = function()
+        require('mason').setup() -- Basic setup for Mason
+      end,
+    },
+
+    -- Mason-lspconfig bridges Mason and nvim-lspconfig
+    {
+      'williamboman/mason-lspconfig.nvim',
+      dependencies = {'williamboman/mason.nvim', 'neovim/nvim-lspconfig'},
+      config = function()
+        -- This setup function ensures that Mason installs the servers specified
+        -- elsewhere (e.g., in your core/lsp.lua or a dedicated mason setup file)
+        -- You can also list servers to ensure are installed directly here,
+        -- but it's often cleaner to manage the list in your main LSP config.
+        require('mason-lspconfig').setup({
+           -- Example: List servers you *always* want installed here
+           -- ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "clangd" },
+
+           -- Or, setup handlers to automatically use Mason installations
+           -- with nvim-lspconfig. This is the more common approach combined
+           -- with vim.lsp.enable() in your lsp setup file.
+           handlers = {
+               -- Default handler function
+               function(server_name)
+                   require("lspconfig")[server_name].setup({})
+               end,
+               -- Example custom handler for lua_ls if needed
+               -- ["lua_ls"] = function ()
+               --     require("lspconfig").lua_ls.setup { ...custom settings... }
+               -- end,
+           }
+        })
+      end,
+    },
+
+    'folke/which-key.nvim',         -- used in keymaps.lua
 
     -- repl --
 
@@ -87,21 +143,6 @@ return {
         lazy = true
 	},
     
-	{
-        'dhananjaylatkar/cscope_maps.nvim',
-        dependencies = {
-            "folke/which-key.nvim", -- optional [for whichkey hints]
-            "nvim-telescope/telescope.nvim", -- optional [for picker="telescope"]
-            "ibhagwan/fzf-lua", -- optional [for picker="fzf-lua"]
-            "nvim-tree/nvim-web-devicons", -- optional [for devicons in telescope or fzf]
-        },
-        opts = {
-            prefix = "<space>c", -- prefix to trigger maps
-        },
-		ft = { 'c', 'cpp' },
-        lazy = true
-	},
-
     -- vintage computer stuff --
 
 	{
@@ -120,22 +161,88 @@ return {
     },
 
     -- general dev --
-    -- NOTE: currently disabled as it automatically assumes fastbasic files are binary
 
-    -- { 
-		-- 'RaafatTurki/hex.nvim', 
-	    -- config = true 
-    -- },
+    { 
+		'RaafatTurki/hex.nvim', 
+	    config = true,
+        opts = { is_file_binary_post_read = function() return false end, }
+    },
 
-    -- LSP related --
+    {
+      "joshuavial/aider.nvim",
+      opts = {
+        auto_manage_context = false, -- automatically manage buffer context
+        default_bindings = true,     -- use default <leader>A keybindings within vim for controlling aider
+        debug = false,               -- enable debug logging
+        vim = true,                  -- no idea what this flag does
+      },
+    },
 
-    'neovim/nvim-lspconfig',
+    -- AI related --
+
+    -- 'github/copilot.vim',
+
+    {
+        "olimorris/codecompanion.nvim",
+
+        dependencies = {
+          "nvim-lua/plenary.nvim",
+          "nvim-treesitter/nvim-treesitter",
+          { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
+          -- You might need nvim-web-devicons if render-markdown uses it (check its docs)
+          -- "nvim-tree/nvim-web-devicons",
+        },
+
+        opts = {
+            strategies = {
+                chat   = { adapter = 'gemini', },
+                inline = { adapter = 'gemini', },           -- NOTE: inline is not autocomplete
+                -- edit = { adapter = 'gemini' },
+                -- generate = { adapter = 'gemini' },
+            },
+
+            adapters = {
+                gemini = function()
+                  local api_key = vim.env.CODECOMPANION_GEMINI_API_KEY or vim.env.GEMINI_API_KEY
+                  if not api_key or api_key == "" then
+                      vim.notify( "GEMINI_API_KEY environment variable not set for codecompanion.nvim", vim.log.levels.WARN )
+                      return nil
+                  end
+
+                  return require("codecompanion.adapters").extend("gemini", {
+                    env = {
+                      api_key = api_key,
+                    },
+                    schema = {
+                        model = { default = "gemini-2.5-pro-exp-03-25" },
+                    },
+                  })
+                end,
+            },
+        },
+
+        cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionInline" },
+    },
+
+    -- for autocompletion --
+    -- NOTE: supermaven-nvim is no longer free
+
+    --{
+        --'supermaven-inc/supermaven-nvim',
+        --config = function()
+            --require("supermaven-nvim").setup({
+                --ignore_filetypes = { [""] = true, txt = true, text = true }
+            --})
+        --end,
+    --},
 
     -- misc --
 	
     'christoomey/vim-tmux-navigator',
+    'junegunn/vim-easy-align',
+    'gyim/vim-boxdraw',
 
     -- this one is no longer updated, and I've made changes to it
 	
-    { dir = '~/.vim/plugins/image.vim' },
+    { dir = vim.fn.expand('$VIMHOME') .. '/plugins/image.vim' },
 }

@@ -1,5 +1,8 @@
 -- print(vim.api.nvim_get_option('runtimepath'))
 
+vim.g.mapleader      = "\\"
+vim.g.maplocalleader = "\\"
+
 -- bootstrap lazy plugin manager
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -19,10 +22,11 @@ vim.opt.rtp:prepend(lazypath)
 
 -- plugins I use are listed in ~/.vim/lua/plugins.lua
 
-require("lazy").setup( {
-	spec = "plugins" } )
+require("lazy").setup({
+  spec = "plugins"      -- look in plugins file for all plugins I'm using
+})
 
-require("cscope_maps").setup()
+-- require("cscope_maps").setup()
 
 -- my LSP settings in ~/.vim/lua/lsp.lua
 

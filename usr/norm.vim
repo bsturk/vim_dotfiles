@@ -45,6 +45,9 @@ let g:explDetailedList = 1
 
 if has('nvim')
     let g:python3_host_prog='/usr/bin/python3'
+    if has ('win32') || has( 'win64' )
+        let g:python3_host_prog = 'C:/Software/Python3/python.exe'
+    endif
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,6 +66,7 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tmux split window navigation
+" this has been disabled, it has issues
 
 if has("nvim") && !has("gui_running")      " won't be in tmux if GUI, and nvim only
     if !empty($TMUX)

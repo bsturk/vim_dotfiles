@@ -19,7 +19,7 @@
 
     requirements summary:
 
-        python enabled vim ( +python )
+        python enabled vim (+python)
         operating system that supports pty (unix) -or- popen/pipes (Windows)
 	    Tested w/ Python 2.2 and 2.3, 2.4, and 2.5, and 2.6.
 
@@ -68,12 +68,12 @@
 
         :source vimsh.vim
 
-    It is much easier to assign a key mapping to load it.  <Leader> is what
+    It is much easier to assign a key mapping to load it.  <leader> is what
     ever you use as your leader sequence, I personally use '\'.
 
     A useful mapping might be:
 
-         nmap <Leader>sh           :source <path_to_script>/vimsh.vim<CR>
+         nmap <leader>sh           :source <path_to_script>/vimsh.vim<CR>
 
     I use one like this:
 

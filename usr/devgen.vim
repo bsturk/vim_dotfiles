@@ -49,6 +49,22 @@ endfun
     
 """"""""""""""
 
+func! AddBracketSpaces(mode)
+    let savecol = col(".")
+    let saverow = line(".")
+    if a:mode == 'Normal'
+        exec '%s:\[\([^ \]]\):[ \1:eg'
+        exec '%s/\([^ \[]\)\]/\1 ]/eg'
+    else
+        exec "'<,'>s/\\[\\([^ \\]]\\)/[ \\1/eg"
+        exec "'<,'>s/\\([^ \\[]\\)\\]/\\1 ]/eg"
+    endif
+    exec ':'. saverow
+    exec 'normal ' . savecol . '|'
+endfun
+
+""""""""""""""
+
 func! SurroundWordWithParen(mode)
     let savecol = col(".")
     let saverow = line(".")
@@ -92,6 +108,8 @@ endif
 map      <leader>fo     :let &fen = !&fen<CR>
 noremap  <leader>((     :call AddParenSpaces('Normal')<CR>
 vnoremap <leader>((     <Esc>:call AddParenSpaces('Visual')<CR>
+noremap  <leader>[[     :call AddBracketSpaces('Normal')<CR>
+vnoremap <leader>[[     <Esc>:call AddBracketSpaces('Visual')<CR>
 noremap  <leader>(s     :call SurroundWordWithParen('Normal')<CR>
 vnoremap <leader>(s     <Esc>:call SurroundWordWithParen('Visual')<CR>
 

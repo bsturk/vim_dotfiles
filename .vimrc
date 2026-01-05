@@ -4,15 +4,13 @@ set backup
 set backupcopy=yes
 set backupext=.bak
 set belloff=all
-set browsedir=current
 set cmdheight=1
 set cmdwinheight=2
-set complete=.,w,u,b,i,d,t
+set complete=.,w,u,b
 set completeopt="menu,noinsert,noselect"
 set confirm 
 set cpoptions+=B
 set expandtab
-set guioptions=ia
 set hidden 
 set ignorecase 
 set incsearch 
@@ -28,7 +26,6 @@ set nofixeol
 set nohlsearch
 set nowrap 
 set nowrapscan 
-set pastetoggle=<C-<>
 set ruler 
 set rulerformat=%25(#%n\ %m%r%y\ %P\ <%l,%c%V>%)
 set scroll=15
@@ -60,9 +57,12 @@ set visualbell
 set t_vb=
 
 if !has('nvim')
+    set browsedir=current
     set clipboard=unnamed,autoselect
-    set ttymouse=
+    set guioptions=ia
     set nocompatible    " NOTE: nvim is always nocompatible
+    set pastetoggle=<C-<>
+    set ttymouse=
 endif
 
 if has("autocmd")  " must be done first for some reason, this enables after/ftplugin stuff
@@ -92,7 +92,6 @@ set shell=bash
 
 if has("unix")
     set diffopt-=internal       " UNIX platforms use external tool and may not have been compiled with support for internal diff
-    set guioptions+=F
     set guifont=Monospace\ 10,Bitstream\ Vera\ Sans\ Mono\ 12,Monospace\ 8,Terminal\ 10,MiscFixed\ 8
     set encoding=utf8   " GTK likes this
     let $PAGER=''
@@ -107,6 +106,10 @@ if has("unix")
 		if lines[0] =~ "Microsoft"
             let g:in_wsl = 1
         endif
+    endif
+
+    if !has('nvim')
+        set guioptions+=F
     endif
 endif
 
