@@ -6,6 +6,9 @@ return {
 
     {
       "nvim-treesitter/nvim-treesitter",
+      branch   = 'master',
+      lazy     = false,
+      priority = 1000,
 
       -- load if not on Windows
       cond = function()
@@ -13,13 +16,18 @@ return {
       end,
       build = ":TSUpdate",
       config = function()
-          require("nvim-treesitter.configs").setup 
+          local configs = require("nvim-treesitter.configs")
+
+          configs.setup(
           {
-              ensure_installed = { "c", "lua", "rust", "markdown", "markdown_inline" },
-              highlight = { enable = true, }
-          }
+              ensure_installed = { "c", "lua", "vim", "vimdoc", "rust", "markdown", "markdown_inline" },
+              sync_install     = false,
+              highlight        = { enable = true },
+              indent           = { enable = true }
+          })
       end
     },
+
     -- LSP RELATED --
 
     'neovim/nvim-lspconfig',

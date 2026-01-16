@@ -98,12 +98,8 @@ if has("unix")
 
     let MYTMP=$HOME . '/.tmp'  " I don't want these deleted on reboot, so not in /tmp
 
-    " WSL check
-	let uname = substitute(system('uname'),'\n','','')
-
-	if uname == 'Linux'
-		let lines = readfile("/proc/version")
-		if lines[0] =~ "Microsoft"
+    if !has("macunix")
+        if exists( '$WSL_DISTRO_NAME' ) || exists( 'WSL_INTEROP' )
             let g:in_wsl = 1
         endif
     endif

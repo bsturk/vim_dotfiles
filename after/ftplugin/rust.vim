@@ -11,6 +11,8 @@ iab z/      ///////////////////////////////////
 iab z\      /*<CR><Tab>**********************************************************<CR><CR>**********************************************************<CR><C-D>*/<Up><Up><Tab>
 iab z*      /******************************************************************************/
 
+setlocal makeprg=cargo\ check\ --message-format=short
+setlocal errorformat=%f:%l:%c:\ %t%*[^:]:\ %m,%f:%l:%c:\ %m
 
 setlocal omnifunc=v:lua.vim.lsp.omnifunc
 nnoremap <buffer><silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
