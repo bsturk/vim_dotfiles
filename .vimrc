@@ -7,7 +7,7 @@ set belloff=all
 set cmdheight=1
 set cmdwinheight=2
 set complete=.,w,u,b
-set completeopt="menu,noinsert,noselect"
+set completeopt=menu,menuone,noinsert,noselect
 set confirm 
 set cpoptions+=B
 set expandtab
