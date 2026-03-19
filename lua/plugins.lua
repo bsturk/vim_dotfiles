@@ -176,73 +176,21 @@ return {
         opts = { is_file_binary_post_read = function() return false end, }
     },
 
-    {
-      "joshuavial/aider.nvim",
-      opts = {
-        auto_manage_context = false, -- automatically manage buffer context
-        default_bindings = true,     -- use default <leader>A keybindings within vim for controlling aider
-        debug = false,               -- enable debug logging
-        vim = true,                  -- no idea what this flag does
-      },
-    },
-
     -- AI related --
 
     -- 'github/copilot.vim',
 
-    {
-        "olimorris/codecompanion.nvim",
+    -- usability/enhancements --
 
-        dependencies = {
-          "nvim-lua/plenary.nvim",
-          "nvim-treesitter/nvim-treesitter",
-          { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
-          -- You might need nvim-web-devicons if render-markdown uses it (check its docs)
-          -- "nvim-tree/nvim-web-devicons",
-        },
+    { 'tpope/vim-fugitive' },
 
-        opts = {
-            strategies = {
-                chat   = { adapter = 'gemini', },
-                inline = { adapter = 'gemini', },           -- NOTE: inline is not autocomplete
-                -- edit = { adapter = 'gemini' },
-                -- generate = { adapter = 'gemini' },
-            },
-
-            adapters = {
-                gemini = function()
-                  local api_key = vim.env.CODECOMPANION_GEMINI_API_KEY or vim.env.GEMINI_API_KEY
-                  if not api_key or api_key == "" then
-                      vim.notify( "GEMINI_API_KEY environment variable not set for codecompanion.nvim", vim.log.levels.WARN )
-                      return nil
-                  end
-
-                  return require("codecompanion.adapters").extend("gemini", {
-                    env = {
-                      api_key = api_key,
-                    },
-                    schema = {
-                        model = { default = "gemini-2.5-pro-exp-03-25" },
-                    },
-                  })
-                end,
-            },
-        },
-
-        cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionInline" },
+    { 'vim-airline/vim-airline', 
+      config = function()
+            vim.g['airline#extensions#whitespace#enabled'] = 0
+            vim.g['airline#extensions#tagbar#enabled'] = 0
+            vim.g['airline#extensions#gutentags#enabled'] = 0
+        end,
     },
-
-    -- for autocompletion --
-    -- NOTE: supermaven-nvim is no longer free
-
-    --{
-        --'supermaven-inc/supermaven-nvim',
-        --config = function()
-            --require("supermaven-nvim").setup({
-                --ignore_filetypes = { [""] = true, txt = true, text = true }
-            --})
-        --end,
-    --},
 
     -- misc --
 	
